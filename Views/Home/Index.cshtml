@@ -10,7 +10,7 @@
         <input type="submit" value="Short it!" />
     </form>
     <table class="table">
-        <tr><td>URL</td><td>Short Link</td><td>Created</td><td>Accessed</td></tr>
+        <tr><td>URL</td><td>Short Link</td><td>Created</td><td>Accessed</td><td/><td/></tr>
         @foreach (var item in Model)
         {
     <tr>
@@ -19,7 +19,9 @@
         <td>@item.Created</td>
         <td>@item.Counter</td>
         <td>
-            @Html.ActionLink("Редактировать", "EditUrl", new { id = item.ID }) |
+            @Html.ActionLink("Редактировать", "EditUrl", new { id = item.ID })
+        </td>
+        <td>
             @Html.ActionLink("Удалить", "DeleteUrl", new { id = item.ID })
         </td>
     </tr>
