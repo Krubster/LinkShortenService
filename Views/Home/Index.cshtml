@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form action="/Home/UrlConverter" method="post">
+        <label>URL:</label>
+        <input type="text" name="url" value="" />
+        <input type="submit" value="Short it!" />
+    </form>
+    <table class="table">
+        <tr><td>URL</td><td>Short Link</td><td>Created</td><td>Accessed</td></tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.OriginalURL</td>
+        <td>@item.ShortURL</td>
+        <td>@item.Created</td>
+        <td>@item.Counter</td>
+        <td>
+            @Html.ActionLink("Редактировать", "EditUrl", new { id = item.ID }) |
+            @Html.ActionLink("Удалить", "DeleteUrl", new { id = item.ID })
+        </td>
+    </tr>
+        }
+    </table>
+</div>

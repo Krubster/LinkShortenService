@@ -1,0 +1,28 @@
+﻿@model LinkShortenService.Models.UrlModel
+@{
+    ViewData["Title"] = "DeleteUrl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Удаление ссылки</h2>
+<dl>
+    <dt>Link</dt>
+    <dd>
+        @Html.DisplayFor(model => model.OriginalURL)
+    </dd>
+
+    <dt>Short Link</dt>
+    <dd>
+        @Html.DisplayFor(model => model.ShortURL)
+    </dd>
+
+    <dt>Created</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Created)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}
+

@@ -1,0 +1,38 @@
+﻿@page
+@model LinkShortenService.Models.UrlModel
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Изменение ссылки</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(model => model.ID)
+
+        <p>
+            Link <br />
+            @Html.EditorFor(model => model.OriginalURL)
+        </p>
+
+        <p>
+            Shorten <br />
+            @Html.EditorFor(model => model.ShortURL)
+        </p>
+
+        <p>
+            Created  <br />
+            @Html.EditorFor(model => model.Created)
+        </p>
+        <p>
+            Accessed <br />
+            @Html.EditorFor(model => model.Counter)
+        </p>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
